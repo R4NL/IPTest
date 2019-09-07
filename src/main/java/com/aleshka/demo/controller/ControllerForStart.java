@@ -12,6 +12,7 @@ public class ControllerForStart {
 
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public String start(HttpServletRequest httpServletRequest, Model model){
+        model.addAttribute("host",httpServletRequest.getRemoteHost());
         model.addAttribute("ip",httpServletRequest.getRemoteAddr());
         return "startHTMLPage";
     }
