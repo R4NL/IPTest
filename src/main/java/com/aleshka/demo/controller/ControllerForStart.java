@@ -1,7 +1,5 @@
 package com.aleshka.demo.controller;
 
-import com.sun.net.httpserver.HttpServer;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
