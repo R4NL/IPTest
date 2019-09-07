@@ -1,13 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Ip Address</title>
 </head>
 <body>
-    <p>Your IP address</p>
-    <p th:text="${ip}"></p>
-    <p>Your IP port</p>
-    <p th:text="${port}"></p>
+<p>Your IP address</p>
+<p th:text="${ip}"></p>
+<p>Your IP port</p>
+<p th:text="${port}"></p>
+<p></p>
+<p>Users before you</p>
+<table>
+    <tr th:each="user:${users}">
+        <td th:text="${user.getIp()}"></td>
+        <td th:text="${user.getPort()}"></td>
+    </tr>
+</table>
 </body>
 </html>

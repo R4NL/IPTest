@@ -1,28 +1,29 @@
 package com.aleshka.demo.entity;
 
-import org.springframework.data.annotation.Id;
+
 
 import javax.persistence.*;
 import java.util.Objects;
 
+
 @Entity
-@Table(name = "User")
+@Table(name = "USERS")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", unique = true)
-    private Long id;
-    @Column(name = "ip")
-    private String ip;
-    @Column(name = "host")
-    private String host;
 
-    public User() {
+    private Long id;
+
+    private String ip;
+
+    private int port;
+
+    public User(String ip, int port) {
+        this.ip = ip;
+        this.port = port;
     }
 
-    public User(String ip, String host) {
-        this.ip = ip;
-        this.host = host;
+    public User() {
     }
 
     public Long getId() {
@@ -41,12 +42,12 @@ public class User {
         this.ip = ip;
     }
 
-    public String getHost() {
-        return host;
+    public int getPort() {
+        return port;
     }
 
-    public void setHost(String host) {
-        this.host = host;
+    public void setPort(int port) {
+        this.port = port;
     }
 
     @Override
@@ -54,20 +55,21 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(ip, user.ip) &&
-                Objects.equals(host, user.host);
+        return port == user.port &&
+                Objects.equals(ip, user.ip);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ip, host);
+        return Objects.hash(ip, port);
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "ip='" + ip + '\'' +
-                ", host='" + host + '\'' +
+                "id=" + id +
+                ", ip='" + ip + '\'' +
+                ", port=" + port +
                 '}';
     }
 }
