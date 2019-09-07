@@ -1,6 +1,5 @@
 language: java
 jdk:
   - oraclejdk12
-script: 
-   - sudo mvn clean package
-   - sudo mvn install
+script:
+  - sudo /usr/local/maven/bin/mvn clean package
