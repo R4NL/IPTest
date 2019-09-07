@@ -1,5 +1,5 @@
 language: java
 jdk:
   - oraclejdk12
-script:
-  - sudo /usr/local/maven/bin/mvn clean package
+install:
+- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
